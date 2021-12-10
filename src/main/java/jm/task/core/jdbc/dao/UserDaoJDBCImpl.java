@@ -4,8 +4,10 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
@@ -51,14 +53,24 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public List<User> getAllUsers() {
+        List <User> userList = new ArrayList<>();
         try (Connection connection = Util.getConnection()){
             Statement statement = connection.createStatement();
-            statement.executeQuery("SELECT * FROM users");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
 
+           while (resultSet.next()){
+                User user = new User();
+                user.setName(resultSet.getString(1));
+                user.setLastName(resultSet.getString(2));
+                user.setAge(resultSet.getByte(3));
+                userList.add(user);
+            }
 
         } catch (SQLException t) {
             t.printStackTrace();
         }
+
+        return userList;
     }
 
     public void cleanUsersTable() {

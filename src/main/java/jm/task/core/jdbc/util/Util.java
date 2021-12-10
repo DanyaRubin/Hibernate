@@ -11,7 +11,7 @@ public class Util {
    //         Statement statement = connection.createStatement();
      //   } catch (SQLException e) {
        //     e.printStackTrace();
-        String url = "jdbc:mysql://localhost/test";
+        String url = "jdbc:mysql://localhost:3306/test";
         String username = "root";
         String password = "3344122";
         return DriverManager.getConnection(url, username, password);
