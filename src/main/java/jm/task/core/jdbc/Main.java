@@ -20,6 +20,7 @@ public class Main {
 
         try {
             userService.createUsersTable();
+            userService.saveUser(testName, testLastName, testAge);
 
 
         } catch (Exception e) {
