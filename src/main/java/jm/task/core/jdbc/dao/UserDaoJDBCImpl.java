@@ -18,7 +18,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Connection connection = Util.getConnection()){
             Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE TABLE users (Id INT PRIMARY KEY AUTO_INCREMENT, testName VARCHAR, testLastName VARCHAR, testAge INT ");
+            statement.executeUpdate("CREATE TABLE users (Id INT PRIMARY KEY AUTO_INCREMENT, testName VARCHAR (40), testLastName VARCHAR(40), testAge INT)");
         } catch (SQLException t) {
             t.printStackTrace();
         }
@@ -37,7 +37,8 @@ public class UserDaoJDBCImpl implements UserDao {
     public void saveUser(String name, String lastName, byte age) {
         try (Connection connection = Util.getConnection()){
             Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT users (testName,testLastName,testAge) VALUES (name,lastName,age)");
+            statement.executeUpdate("INSERT users (testName,testLastName,testAge) VALUES (" + name +"," + lastName+
+                    "," + age + ")");
         } catch (SQLException t) {
             t.printStackTrace();
         }

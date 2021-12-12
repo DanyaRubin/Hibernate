@@ -19,8 +19,9 @@ public class Main {
          final byte testAge = 5;
 
         try {
-            userService.dropUsersTable();
             userService.createUsersTable();
+
+
         } catch (Exception e) {
             System.out.println("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
         }
