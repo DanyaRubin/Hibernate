@@ -62,6 +62,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
            while (resultSet.next()){
                 User user = new User();
+                user.setId(resultSet.getLong(1));
                 user.setName(resultSet.getString(2));
                 user.setLastName(resultSet.getString(3));
                 user.setAge(resultSet.getByte(4));
@@ -74,6 +75,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
         return userList;
     }
+
 
     public void cleanUsersTable() {
         try (Connection connection = Util.getConnection()){
