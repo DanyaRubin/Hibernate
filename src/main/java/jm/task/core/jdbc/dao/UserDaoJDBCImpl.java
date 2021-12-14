@@ -25,7 +25,6 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
-
     public void dropUsersTable() {
         try (Connection connection = Util.getConnection()){
             Statement statement = connection.createStatement();
@@ -72,16 +71,14 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException t) {
             t.printStackTrace();
         }
-
         return userList;
     }
-
 
     public void cleanUsersTable() {
         try (Connection connection = Util.getConnection()){
             Statement statement = connection.createStatement();
             statement.executeUpdate("TRUNCATE TABLE users ");
-                    } catch (SQLException t) {
+        } catch (SQLException t) {
             t.printStackTrace();
         }
     }
