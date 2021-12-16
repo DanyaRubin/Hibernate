@@ -28,7 +28,7 @@ public class Main {
 
             userService.saveUser(testName1,testLastName1, testAge1);
             System.out.println("User с именем " + testName1 + " добавлен в базу данных");
-
+/*
             userService.saveUser(testName2,testLastName2, testAge2);
             System.out.println("User с именем " + testName2 + " добавлен в базу данных");
 
@@ -42,6 +42,8 @@ public class Main {
 
             userService.cleanUsersTable();
             userService.dropUsersTable();
+
+ */
         } catch (Exception e) {
             System.out.println("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
         }
